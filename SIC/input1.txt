@@ -1,0 +1,65 @@
+COPY    START 0
+	var1	RESW	1
+	var2	RESB	12
+	var3  EQU  12
+add var1
++addf var2
+addr a,b
++and var1
+clear b
+comp 0
++compf var3
+compr b,a
+div var1
+divf var1
+divr l,s
+fix
+float
+lop1 hio
+
+j lop1
+jeq loop2
++jgt lop1
++jlt loop2
+jsub var1
+loop2 lda =c'eof'
++ldb =c'eof'
+ldch 5
+ldf 1
+ldl 2
++lds var1
+      ldt var1
+	ldx var1
++lps var1
+	Mul 2
++mulf 4
+mulr s,b
+norm
+or var1
++rd var2
+rmo a,b
+rsub
+	.this is also comment
+sio
+ssk var1
+sta var1
++stb var1
++stch var1
+stf var1
+sti var1
+stl var1
++sts var1
+stsw var1
+stt =x'f1'
++stx var1
+sub var1
+subf =x'b1'
+subr b,s
+svc 1
++td var2
+	tio
+		tix var1
+   tixr a,b
+	wd 1
+END	FIRST
+.
