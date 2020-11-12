@@ -1,0 +1,142 @@
+;8086 Assembler Source
+
+code_seg segment
+x86  PROC near
+   ORG 0
+var1 DW 123h
+var2  DB 123
+
+      AAD;2 
+   AAM;2
+           AAA;1
+           aas;1 
+           CBW;1
+
+           Clc;1
+CLD;1
+           CLI;1
+           cmc;1
+
+cmpsb;1
+           CMPSW;1
+
+           CWD;1
+           DAA;1
+           DAS;1
+
+           FWAIT;1
+           HLT;1
+           INTO;1
+           IRET;1
+           
+LAHF;1
+;this is comment                
+           lodsb;1
+           LODSW;1
+           MOVSB;1
+           MOVSW;1
+           NOP;1
+           POPF;1
+           PUSHF;1
+           REP SCASB;2
+           REPE SCASW;2
+           REPNE scasb;2
+           REPNZ scasw;2
+           REPZ scasb;2
+           SAHF;1
+           stosb;1
+           stosw;1
+           STC;1
+           STD;1
+           STI;1
+           WAIT;1
+           XLAT;1
+PUSH var1;5
+           POP dx;1
+           RET;1
+           RETF;1
+loop2:           INT 10h;2
+           IN ax,10h;2
+     OUT 10h,al;2
+           JMP loop1;2
+           CALL [var1];5
+;this is also comment
+           JA loop2;2
+loop1:           JAE loop2;2
+JB loop1;2
+           JBE loop2;2
+           JC loop2;2
+           JCXZ loop2;2
+           JE loop2;2
+           JG loop2;2
+           JGE loop2;2
+           JL loop1;2
+           JLE loop1;2
+           JNA loop1;2
+           JNAE loop1;2
+           JNB loop1;2
+           JNBE loop1;2
+           JNC loop1;2
+           JNE loop1;2
+           JNG loop1;2
+           JNGE lop3;2
+           JNL lop3;2
+           JNLE lop3;2
+           JNO lop3;2
+           JNP lop3;2
+           JNS lop3;2
+           JNZ lop3;2
+           JO lop3;2
+           JP lop3;2
+           JPE lop3;2
+           JPO lop3;2
+           JS lop3;2
+           JZ lop3;2
+
+           LDS ax,[bx];2
+           LEA cx,[si];2
+           LES cx,[bx];2
+
+lop3: LOOP lop3;2
+           LOOPE lop3;2
+           LOOPNE lop3;2
+           LOOPNZ lop3;2
+           LOOPZ lop3;2
+
+           DEC var1;5
+           INC var2;5
+           DIV cx;2
+           IDIV cx;2
+           IMUL dx;2
+ 
+MUL dx;2
+           NEG al;2
+           NOT ax;2
+           rcr al,1;2
+           RCL al,1;2
+           ROL ax,1;2
+           ROR dx,1;2
+           SAR ax,1;2
+           SHL bx,1;2
+           SHR cx,1;2
+           XCHG al,bl;2
+           TEST cl,ch;2
+
+                ADC ax,[bx][si]+15;3
+           ADD ax,[bx];2
+           AND al,0fh;2
+           CMP ax,bx;2
+           OR ax,10;3
+           SBB al,02h;2
+                sub al,[bx][si];2
+           XOR bx,20h;3
+                mov al,0ffh;2
+                mov ax,bx;2
+                mov ax,[bx];2
+                mov ds,ax;2
+                mov bx,ds;2
+                mov bx,[var1];5
+x86 endp
+
+code_seg ends
+end x86
