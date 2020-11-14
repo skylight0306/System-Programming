@@ -1,0 +1,23 @@
+CODE   	       SEGMENT
+Mycode         PROC       NEAR
+               ASSUME    CS:CODE
+               ORG    	0
+Msg            BYTE   	'Green '
+	       BYTE   	'Green '
+	       BYTE   	'Grass '
+               BYTE   	'Home'
+LF             BYTE   	0AH, 0DH, '$'
+               MOV    	AX,WORD PTR Msg
+               MOV    	DS,AX
+	       MOV    	DX,WORD PTR Msg
+               CALL   	DispMsg
+               MOV    	AH,4CH
+               INT    	21H
+Mycode         ENDP
+DispMsg        PROC   	NEAR
+               MOV    	AH,09H
+               INT    	21H
+               RET
+DispMsg        ENDP
+CODE           ENDS
+               END    	Mycode
